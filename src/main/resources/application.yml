@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/file_management?createDatabaseIfNotExist=true
     username: root
-    password: root
+    password: fiMang@d4Abs65
   jpa:
     hibernate:
       ddl-auto: update

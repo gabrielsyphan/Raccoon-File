@@ -8,7 +8,7 @@ services:
     volumes:
       - delve_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: fiMang@d4Abs65
       MYSQL_USER: test
       MYSQL_PASSWORD: test
     restart: always
