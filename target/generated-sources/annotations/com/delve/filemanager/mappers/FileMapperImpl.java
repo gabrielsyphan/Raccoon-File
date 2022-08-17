@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-17T14:59:20-0300",
-    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.3 (Eclipse Adoptium)"
+    date = "2022-08-17T15:46:41-0300",
+    comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.16 (Ubuntu)"
 )
 @Component
 public class FileMapperImpl extends FileMapper {
@@ -22,9 +22,9 @@ public class FileMapperImpl extends FileMapper {
 
         FileEntity.FileEntityBuilder fileEntity = FileEntity.builder();
 
-        fileEntity.fileName( fileDto.getFileName() );
         fileEntity.name( fileDto.getName() );
         fileEntity.path( fileDto.getPath() );
+        fileEntity.fileName( fileDto.getFileName() );
 
         return fileEntity.build();
     }
@@ -37,9 +37,9 @@ public class FileMapperImpl extends FileMapper {
 
         FileDto fileDto = new FileDto();
 
-        fileDto.setFileName( fileEntity.getFileName() );
         fileDto.setName( fileEntity.getName() );
         fileDto.setPath( fileEntity.getPath() );
+        fileDto.setFileName( fileEntity.getFileName() );
 
         return fileDto;
     }
@@ -50,6 +50,9 @@ public class FileMapperImpl extends FileMapper {
             return fileEntityNew;
         }
 
+        fileEntityNew.setName( fileEntityOld.getName() );
+        fileEntityNew.setPath( fileEntityOld.getPath() );
+        fileEntityNew.setFileName( fileEntityOld.getFileName() );
         byte[] data = fileEntityOld.getData();
         if ( data != null ) {
             fileEntityNew.setData( Arrays.copyOf( data, data.length ) );
@@ -57,9 +60,6 @@ public class FileMapperImpl extends FileMapper {
         else {
             fileEntityNew.setData( null );
         }
-        fileEntityNew.setFileName( fileEntityOld.getFileName() );
-        fileEntityNew.setName( fileEntityOld.getName() );
-        fileEntityNew.setPath( fileEntityOld.getPath() );
 
         return fileEntityNew;
     }
