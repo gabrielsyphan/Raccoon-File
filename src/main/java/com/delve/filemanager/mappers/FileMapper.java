@@ -14,10 +14,8 @@ public abstract class FileMapper {
 
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "data", ignore = true)
     public abstract FileEntity dtoToEntity(FileDto fileDto);
 
-    @Mapping(target = "data", ignore = true)
     public abstract FileDto entityToDto(FileEntity fileEntity);
 
     @Mapping(target = "id", ignore = true)

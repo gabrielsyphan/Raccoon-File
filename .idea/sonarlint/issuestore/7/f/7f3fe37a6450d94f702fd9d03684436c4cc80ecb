@@ -1,0 +1,15 @@
+
+j
+java:S1192$"ODefine a constant instead of duplicating this literal "File not found" 4 times.(šì¡øÿÿÿÿ
+a
+java:S2259T"FA "NullPointerException" could be thrown; "getFile()" can return null.(µ††‚ùÿÿÿÿ
+\
+java:S2259;"FA "NullPointerException" could be thrown; "getFile()" can return null.(àÔüß
+>
+java:S1170"!Make this final field static too.(øË˜Ç8î‚¥Š«0
+^
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(øË˜Ç8ßîÖŠ«0
+A
+java:S1075v"&Remove this hard-coded path-delimiter.(ƒ–çÿÿÿÿÿ
+H
+java:S1075z"&Remove this hard-coded path-delimiter.(¬ï·şÿÿÿÿ8±›ÁŠ«0

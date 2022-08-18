@@ -20,17 +20,11 @@ public class FileEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
-
     @Column
     private String path;
 
     @Column
     private String fileName;
-
-    @Lob
-    private byte[] data;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

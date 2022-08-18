@@ -2,13 +2,12 @@ package com.delve.filemanager.mappers;
 
 import com.delve.filemanager.domains.FileEntity;
 import com.delve.filemanager.dtos.FileDto;
-import java.util.Arrays;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-17T15:46:41-0300",
+    date = "2022-08-18T10:37:52-0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.16 (Ubuntu)"
 )
 @Component
@@ -22,7 +21,6 @@ public class FileMapperImpl extends FileMapper {
 
         FileEntity.FileEntityBuilder fileEntity = FileEntity.builder();
 
-        fileEntity.name( fileDto.getName() );
         fileEntity.path( fileDto.getPath() );
         fileEntity.fileName( fileDto.getFileName() );
 
@@ -37,7 +35,6 @@ public class FileMapperImpl extends FileMapper {
 
         FileDto fileDto = new FileDto();
 
-        fileDto.setName( fileEntity.getName() );
         fileDto.setPath( fileEntity.getPath() );
         fileDto.setFileName( fileEntity.getFileName() );
 
@@ -50,16 +47,8 @@ public class FileMapperImpl extends FileMapper {
             return fileEntityNew;
         }
 
-        fileEntityNew.setName( fileEntityOld.getName() );
         fileEntityNew.setPath( fileEntityOld.getPath() );
         fileEntityNew.setFileName( fileEntityOld.getFileName() );
-        byte[] data = fileEntityOld.getData();
-        if ( data != null ) {
-            fileEntityNew.setData( Arrays.copyOf( data, data.length ) );
-        }
-        else {
-            fileEntityNew.setData( null );
-        }
 
         return fileEntityNew;
     }
