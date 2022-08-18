@@ -38,7 +38,7 @@ public class FileService {
 
         FileDto fileDto = FileMapper.INSTANCE.entityToDto(file);
         String path = this.generatePath(fileDto.getPath()) + fileDto.getFileName();
-        path = path.split("/www")[1];
+        path = path.split("/www/")[1];
         fileDto.setPath(path);
 
         return fileDto;
