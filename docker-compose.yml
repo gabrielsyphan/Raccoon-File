@@ -13,5 +13,12 @@ services:
       MYSQL_PASSWORD: test
     restart: always
 
+  raccoon:
+    image: debian/spring:latest
+    container_name: raccoon_spring
+    ports:
+      - "81:81"
+
 volumes:
   delve_data:
+
