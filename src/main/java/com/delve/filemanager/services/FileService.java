@@ -23,7 +23,7 @@ import java.util.Base64;
 @Log4j2
 public class FileService {
 
-    private final String rootPath = "/projetos/apache2-docker-angular/www/files";
+    public static final String rootPath = "/projetos/apache2-docker-angular/www/files";
 
     private final FileRepository fileRepository;
 
@@ -38,6 +38,7 @@ public class FileService {
 
         FileDto fileDto = FileMapper.INSTANCE.entityToDto(file);
         String path = this.generatePath(fileDto.getPath()) + fileDto.getFileName();
+        path = path.split("/www")[1];
         fileDto.setPath(path);
 
         return fileDto;
@@ -122,7 +123,7 @@ public class FileService {
             path = path + "/";
         }
 
-        path = this.rootPath + path;
+        path = rootPath + path;
 
         File file = new File(path);
         if(!file.exists()) {

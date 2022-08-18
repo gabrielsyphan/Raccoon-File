@@ -28,6 +28,8 @@ public class FileController {
 
     private final FileService fileService;
 
+    public static final String serverUrl = "http://raccoonbit.com";
+
     @GetMapping
     @Operation(summary = "List all file paths", description = "You just need to send the path to list all files inside it")
     public ResponseEntity<Page<FileEntity>> listAll(
@@ -43,7 +45,7 @@ public class FileController {
     public ResponseEntity<FileDto> getFile(@PathVariable Long id, HttpServletRequest request) throws IOException {
         log.info("getFile() - id: {}", id);
         FileDto file = fileService.getFile(id);
-        file.setPath("http://" + request.getLocalName() + file.getPath());
+        file.setPath(serverUrl + file.getPath());
         return ResponseEntity.ok(file);
     }
 
