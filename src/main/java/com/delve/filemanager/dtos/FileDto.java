@@ -5,6 +5,8 @@ import lombok.Data;
 import org.springframework.lang.Nullable;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.validation.constraints.NotBlank;
 
 @Data
@@ -19,6 +21,7 @@ public class FileDto {
     private String fileName;
 
     @Nullable
+    @JsonIgnore
     @Schema(description = "File content", example = "File to upload in multipartFile format")
     private MultipartFile file;
 }
