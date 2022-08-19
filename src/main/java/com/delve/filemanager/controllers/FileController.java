@@ -45,7 +45,7 @@ public class FileController {
     public ResponseEntity<FileDto> getFile(@PathVariable Long id, HttpServletRequest request) throws IOException {
         log.info("getFile() - id: {}", id);
         FileDto file = fileService.getFile(id);
-        file.setPath(serverUrl + file.getPath());
+        file.setPath(serverUrl + "/" + file.getPath());
         return ResponseEntity.ok(file);
     }
 
