@@ -23,7 +23,7 @@ services:
     depends_on:
      - mysql-service
     ports:
-      - 81:81
+      - "81:81"
     volumes:
       - ./service:/file-manager
     networks:
