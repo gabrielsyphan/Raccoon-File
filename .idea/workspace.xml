@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10db2c87-6f3a-4bd0-bb6d-016b197dba3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/GenericService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/enums/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/controllers/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/dtos/FileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/dtos/FileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/constants/PathConstant.java" afterDir="false" />
-    </list>
+    <list default="true" id="10db2c87-6f3a-4bd0-bb6d-016b197dba3d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +20,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/constants/PathConstant.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/enums/Status.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/lucasoliveira/Desktop/file-manager"
+    "last_opened_file_path": "/home/lucasoliveira/Documents/eci-monitor/econect-cloud-int"
   }
 }]]></component>
   <component name="RecentsManager">

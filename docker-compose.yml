@@ -7,14 +7,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - delve_data:/var/lib/mysql
+      - database_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: d@t03am16qld
       MYSQL_USER: filemanager
       MYSQL_PASSWORD: fiMang@d4Abs65
     restart: always
     networks:
-      - file-manager-network
+      - no-internet
 
   file-manager-service:
     image: openjdk:11
@@ -27,7 +27,8 @@ services:
     volumes:
       - ./service:/file-manager
     networks:
-      - file-manager-network
+      - web
+      - no-internet
     environment:
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.jdbc.Driver
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-service:3306/file_management?createDatabaseIfNotExist=true
@@ -36,8 +37,12 @@ services:
       - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
 
 volumes:
-  delve_data:
+  database_data:
 
 networks:
-  file-manager-network:
-    name: file-manager-network
+  web:
+    driver: bridge
+  no-internet:
+    driver: bridge
+    internal: true
+
