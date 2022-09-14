@@ -3,7 +3,7 @@ package com.delve.filemanager.controllers;
 import com.delve.filemanager.domains.FileEntity;
 import com.delve.filemanager.dtos.FileDto;
 import com.delve.filemanager.services.FileService;
-import com.delve.filemanager.util.Constants;
+import com.delve.filemanager.util.constants.PathConstant;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -21,7 +21,7 @@ import java.io.IOException;
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-@RequestMapping(Constants.FILE_PATH)
+@RequestMapping(PathConstant.FILE_PATH)
 public class FileController {
 
     private final FileService fileService;
@@ -42,23 +42,22 @@ public class FileController {
     @Operation(summary = "Get file by id")
     public ResponseEntity<FileDto> getFile(@PathVariable Long id, HttpServletRequest request) throws IOException {
         log.info("getFile() - id: {}", id);
-        FileDto file = fileService.getFile(id);
+        FileDto file = fileService.getById(id);
         file.setPath(SERVER_URL + "/" + file.getPath());
         return ResponseEntity.ok(file);
     }
 
     @PostMapping
     @Operation(summary = "Save new file on path")
-    public ResponseEntity<FileEntity> create(@ModelAttribute @Valid FileDto fileDto) throws IOException {
+    public ResponseEntity<FileDto> create(@ModelAttribute @Valid FileDto fileDto) throws IOException {
         log.info("create() - fileDto: {}", fileDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(this.fileService.create(fileDto));
     }
 
-    @PutMapping(value = "/{id}")
     @Operation(summary = "Update file by id")
-    public ResponseEntity<FileEntity> update(@PathVariable Long id, @ModelAttribute @Valid FileDto fileDto) throws IOException {
-        log.info("update() - id: {}, fileDto: {}", id, fileDto);
-        return ResponseEntity.ok(this.fileService.update(id, fileDto));
+    public ResponseEntity<FileDto> update(@ModelAttribute @Valid FileDto fileDto) throws IOException {
+        log.info("update() - fileDto: {}", fileDto);
+        return ResponseEntity.ok(this.fileService.update(fileDto));
     }
 
     @DeleteMapping("/{id}")
@@ -74,7 +73,7 @@ public class FileController {
             description = "You just need to send the path to delete all files inside it")
     public ResponseEntity<Void> deleteAllByPath(@RequestBody @Valid FileDto fileDto) throws IOException {
         log.info("deleteAllByPath()");
-        this.fileService.deleteAllByPath(fileDto);
+        this.fileService.deleteAll(fileDto);
         return ResponseEntity.noContent().build();
     }
 }

@@ -1,6 +1,6 @@
-package com.delve.filemanager.util;
+package com.delve.filemanager.util.constants;
 
-public class Constants {
+public class PathConstant {
 
     public static final String VERSION = "v1";
 

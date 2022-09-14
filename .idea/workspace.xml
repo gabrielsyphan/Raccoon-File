@@ -5,26 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10db2c87-6f3a-4bd0-bb6d-016b197dba3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insomnia-requests.json" beforeDir="false" afterPath="$PROJECT_DIR$/insomnia-requests.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/file-manager-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/annotations/com/delve/filemanager/mappers/FileMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-com.delve.filemanager.FileManagerApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/com.delve.filemanager.FileManagerApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/test-classes/com/delve/filemanager/FileManagerApplicationTests.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/GenericService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/enums/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/dtos/FileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/dtos/FileDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/delve/filemanager/util/constants/PathConstant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

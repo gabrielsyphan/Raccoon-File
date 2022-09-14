@@ -20,17 +20,19 @@ import java.nio.file.Paths;
 @RequiredArgsConstructor
 @Service
 @Log4j2
-public class FileService {
+public class FileService implements GenericService<FileDto, FileEntity> {
 
     public static final String rootPath = "/projetos/apache2-docker-angular/www/files";
 
     private final FileRepository fileRepository;
 
+    @Override
     public Page<FileEntity> listAll(FileDto fileDto, Pageable pageable) {
         return this.fileRepository.findByPath(fileDto.getPath(), pageable);
     }
 
-    public FileDto getFile(Long id) {
+    @Override
+    public FileDto getById(Long id) {
         FileEntity file = this.fileRepository.findById(id).orElseThrow(() -> {
             throw  new IllegalArgumentException("File not found");
         });
@@ -43,7 +45,8 @@ public class FileService {
         return fileDto;
     }
 
-    public FileEntity create(FileDto fileDto) throws IOException {
+    @Override
+    public FileDto create(FileDto fileDto) throws IOException {
         try {
             FileEntity fileEntity = FileMapper.INSTANCE.dtoToEntity(fileDto);
 
@@ -59,16 +62,17 @@ public class FileService {
                 Files.copy(fileDto.getFile().getInputStream(), Paths.get(path + fileDto.getFileName()));
             }
 
-            return this.fileRepository.save(fileEntity);
+            return FileMapper.INSTANCE.entityToDto(this.fileRepository.save(fileEntity));
         } catch (IOException e) {
             log.error("create() - error: {}", e.getMessage());
             throw e;
         }
     }
 
-    public FileEntity update(Long id, FileDto fileDto) throws IOException {
+    @Override
+    public FileDto update(FileDto fileDto) throws IOException {
         try {
-            FileEntity fileFound = this.fileRepository.findById(id).orElseThrow(() -> {
+            FileEntity fileFound = this.fileRepository.findById(fileDto.getId()).orElseThrow(() -> {
                 throw  new IllegalArgumentException("File not found");
             });
 
@@ -83,13 +87,14 @@ public class FileService {
             String pathDto = this.generatePath(fileDto.getPath()) + fileDto.getFileName();
             Files.copy(fileDto.getFile().getInputStream(), Paths.get(pathDto));
 
-            return this.fileRepository.save(fileEntityNew);
+            return FileMapper.INSTANCE.entityToDto(this.fileRepository.save(fileEntityNew));
         } catch (Exception e) {
             log.error("update() - error: {}", e.getMessage());
             throw e;
         }
     }
 
+    @Override
     public void deleteById(Long id) {
         try {
             FileEntity file = this.fileRepository.findById(id).orElseThrow(() -> {
@@ -105,8 +110,9 @@ public class FileService {
         }
     }
 
+    @Override
     @Transactional
-    public void deleteAllByPath(FileDto filerDto) throws IOException {
+    public void deleteAll(FileDto filerDto) throws IOException {
         String path = this.generatePath(filerDto.getPath());
         FileUtils.deleteDirectory(new File(path));
 
