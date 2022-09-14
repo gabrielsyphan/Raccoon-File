@@ -1,8 +1,0 @@
-/projetos/file-manager/src/main/java/com/delve/filemanager/util/Constants.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/mappers/FileMapper.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/services/FileService.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/FileManagerApplication.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/domains/FileEntity.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/controllers/FileController.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/repositories/FileRepository.java
-/projetos/file-manager/src/main/java/com/delve/filemanager/dtos/FileDto.java

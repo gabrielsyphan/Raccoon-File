@@ -23,5 +23,6 @@
 hs_err_pid*
 replay_pid*
 
-/target
-/.idea
+# Auto-generated folders
+*/target/*
+*/.idea/*
