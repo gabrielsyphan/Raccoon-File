@@ -13,6 +13,9 @@ After cloning this project, inside the folder, run "docker-compose -f docker-com
 | Backend | http://localhost:81/v1/api                |
 | Swagger | http://localhost:81/swagger-ui/index.html |
 | Mysql   | http://localhost:3306                     |
+| Grafana | http://localhost:3000                     |
+| Prometheus | http://localhost:9090                  |
+| Actuator | http://localhost:81/actuator              |
 
 ### Contact
 [![Telegram](https://img.shields.io/badge/-@gabrielsyphan-0088CC?style=flat&logo=Telegram&logoColor=white&link=https://t.me/gabrielsyphan/)](https://t.me/gabrielsyphan "Telegram") [![E-mail](https://img.shields.io/badge/-gabrielsyphan@raccoonbit.com-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:gabrielsyphan@raccoonbit.com)](mailto:gabrielsyphan@raccoonbit.com "E-mail")
