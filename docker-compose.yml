@@ -1,4 +1,9 @@
-version: "3.1"
+version: "2.4"
+
+x-database-variables: &database-variables
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/file_management?createDatabaseIfNotExist=true
+  SPRING_DATASOURCE_USERNAME: root
+  SPRING_DATASOURCE_PASSWORD: d@t03am16qld
 
 services:
   mysql-service:
@@ -13,36 +18,32 @@ services:
       MYSQL_USER: filemanager
       MYSQL_PASSWORD: fiMang@d4Abs65
     restart: always
-    networks:
-      - no-internet
+    mem_limit: 512m
 
-  file-manager-service:
-    image: openjdk:11
-    container_name: file-manager
-    command: bash -c "cd /file-manager && ./mvnw spring-boot:run"
-    depends_on:
-     - mysql-service
-    ports:
-      - "81:81"
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheys
     volumes:
-      - ./service:/file-manager
-    networks:
-      - web
-      - no-internet
-    environment:
-      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.jdbc.Driver
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-service:3306/file_management?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=fiMang@d4Abs65
-      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+      - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml"
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    mem_limit: 128m
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    mem_limit: 128m
+
+  raccoonfile:
+      image: lucaswtk/raccoonfile:0.0.1-SNAPSHOT
+      ports:
+        - "81:81"
+      environment:
+        <<: *database-variables
+      mem_limit: 512m
 
 volumes:
   database_data:
-
-networks:
-  web:
-    driver: bridge
-  no-internet:
-    driver: bridge
-    internal: true
-

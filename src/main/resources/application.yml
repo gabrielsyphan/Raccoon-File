@@ -1,0 +1,27 @@
+server:
+  error:
+    include-stacktrace: on-param
+  port: 81
+spring:
+  application:
+    name: racoon-file-manager
+  datasource:
+    url: jdbc:mysql://localhost:3306/file_management?createDatabaseIfNotExist=true
+    username: root
+    password: d@t03am16qld
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+
+info:
+    name: File Management
+    website: http://www.raccoonbit.com
